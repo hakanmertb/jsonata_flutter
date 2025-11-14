@@ -1,3 +1,7 @@
+## 1.0.1
+
+* Minor fixes and updates
+
 ## 1.0.0
 
 * Updated to use flutter_js_stable instead of flutter_js
