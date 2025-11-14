@@ -14,9 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Jsonata Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData(primarySwatch: Colors.blue),
       home: JsonataDemo(),
     );
   }
@@ -83,9 +81,7 @@ class _JsonataDemoState extends State<JsonataDemo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Jsonata Flutter Demo'),
-      ),
+      appBar: AppBar(title: Text('Jsonata Flutter Demo')),
       body: SingleChildScrollView(
         child: Center(
           child: Column(
@@ -115,7 +111,9 @@ class _JsonataDemoState extends State<JsonataDemo> {
                           child: Text(
                             _prettyJson,
                             style: TextStyle(
-                                fontFamily: 'monospace', fontSize: 14),
+                              fontFamily: 'monospace',
+                              fontSize: 14,
+                            ),
                           ),
                         ),
                       ),
@@ -153,10 +151,7 @@ class _JsonataDemoState extends State<JsonataDemo> {
                 '''),
               ),
               SizedBox(height: 20),
-              Text(
-                'Result:',
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
+              Text('Result:', style: TextStyle(fontWeight: FontWeight.bold)),
               SizedBox(height: 10),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 50),

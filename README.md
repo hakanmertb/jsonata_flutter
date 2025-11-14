@@ -17,12 +17,23 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  flutter_jsonata: ^1.0.0
+  jsonata_flutter: ^1.0.0
 ```
 
 ### Android Setup
 
-1. Add the JitPack repository to your `android/build.gradle` file:
+1. Set the minimum SDK version to 21 in your `android/app/build.gradle` or `android/app/build.gradle.kts` file:
+
+```gradle
+android {
+    defaultConfig {
+        minSdkVersion 21
+        // or in kts: minSdk = 21
+    }
+}
+```
+
+2. Add the JitPack repository to your `android/build.gradle` file:
 
 ```gradle
 allprojects {
@@ -33,7 +44,34 @@ allprojects {
 }
 ```
 
-2. For release configuration, update your `android/app/build.gradle` file's `buildTypes` section:
+Or if using Kotlin DSL (`build.gradle.kts`):
+
+```kotlin
+allprojects {
+    repositories {
+        ...
+        maven { url = uri("https://jitpack.io") }
+    }
+}
+```
+
+3. Add the JavaScriptCore dependency to your `android/app/build.gradle` or `android/app/build.gradle.kts` file:
+
+```gradle
+dependencies {
+    implementation 'com.github.fast-development.android-js-runtimes:fastdev-jsruntimes-jsc:0.3.4'
+}
+```
+
+Or in Kotlin DSL:
+
+```kotlin
+dependencies {
+    implementation("com.github.fast-development.android-js-runtimes:fastdev-jsruntimes-jsc:0.3.4")
+}
+```
+
+4. For release configuration, update your `android/app/build.gradle` file's `buildTypes` section:
 
 ```gradle
 buildTypes {
@@ -44,7 +82,7 @@ buildTypes {
 }
 ```
 
-2. Create a file named `proguard-rules.pro` in the `android/app` directory and add the following content:
+5. Create a file named `proguard-rules.pro` in the `android/app` directory and add the following content:
 
 ```proguard
 #Flutter Wrapper
@@ -62,7 +100,9 @@ buildTypes {
 ### Basic Usage
 
 ```dart
-import 'package:flutter_jsonata/flutter_jsonata.dart';
+```dart
+import 'package:jsonata_flutter/jsonata_flutter.dart';
+```
 
 void main() async {
   // Initialize Jsonata
